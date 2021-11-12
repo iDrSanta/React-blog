@@ -1,0 +1,23 @@
+.comment {
+  border-left: 1px solid rgb(158, 158, 158);
+  border-radius: 0px 0px 0px 9px;
+  margin-bottom: 25px;
+  padding-left: 10px;
+  .commetnInfo {
+    display: flex;
+    margin-bottom: 15px;
+    svg {
+      margin-right: 10px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+  .commentNikname {
+    font-weight: 500;
+    font-size: 17px;
+  }
+  .commentDate {
+    font-size: 12px;
+    color: rgb(105, 105, 105);
+  }
+}
