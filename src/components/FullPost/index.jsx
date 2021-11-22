@@ -33,7 +33,7 @@ export const FullPost = ({}) => {
         <div className="container">
           <div className={styles.text}>{post.text}</div>
           <div className={styles.buttonBox}>
-            <Link to="/">
+            <Link to="/React-blog/">
               <button>На главную</button>
             </Link>
           </div>

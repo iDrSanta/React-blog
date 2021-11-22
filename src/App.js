@@ -9,8 +9,8 @@ function App() {
     <div className="App clear">
       <Header />
       <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/post/:id" element={<FullPost />} />
+        <Route path="/React-blog/" element={<MainPage />} exact />
+        <Route path="/React-blog/post/:id" element={<FullPost />} />
       </Routes>
     </div>
   );
