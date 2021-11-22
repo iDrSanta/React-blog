@@ -1,13 +1,22 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { Comments } from '../Comments/index';
 import styles from './FullPost.module.scss';
+import { fetchComments } from '../../redux/actions/comments';
 
 export const FullPost = ({}) => {
   const { id } = useParams();
   const post = useSelector(({ articles }) => articles.items.find((obj) => obj.id === Number(id)));
+  const comments = useSelector(({ comments }) => comments.items);
+
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(fetchComments());
+  }, []);
 
   return (
     <>
@@ -30,8 +39,7 @@ export const FullPost = ({}) => {
           </div>
         </div>
       </div>
-
-      <Comments />
+      <Comments comments={comments} />
     </>
   );
 };
