@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import styles from './Header.module.scss';
 import { CreateArticalModal } from '../CreateArticalModal/index';
+import { ModalWindow } from '../ModalWindow/index';
 
 export const Header = () => {
   const [visibleModal, setVisibleModal] = React.useState(false);
@@ -30,7 +31,8 @@ export const Header = () => {
       </div>
 
       {visibleModal && (
-        <CreateArticalModal visibleModal={visibleModal} toggleVisibleModal={toggleVisibleModal} />
+        // <CreateArticalModal visibleModal={visibleModal} toggleVisibleModal={toggleVisibleModal} />
+        <ModalWindow visibleModal={visibleModal} toggleVisibleModal={toggleVisibleModal} />
       )}
     </>
   );

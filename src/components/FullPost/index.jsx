@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Comments } from '../Comments/index';
 import styles from './FullPost.module.scss';
 import { fetchComments } from '../../redux/actions/comments';
+import axios from 'axios';
 
 export const FullPost = ({}) => {
   const { id } = useParams();
@@ -17,6 +18,24 @@ export const FullPost = ({}) => {
   React.useEffect(() => {
     dispatch(fetchComments());
   }, []);
+
+  const obj = {
+    articleId: 1,
+    userId: 1,
+    article: [
+      {
+        title: 'Заголовок 1',
+        subTitle: 'Подзаголовок 1',
+        image: 'URL',
+        text: 'Текст статьи',
+        comments: [],
+      },
+    ],
+  };
+
+  const q = () => {
+    axios.post(`https://612272dad446280017054873.mockapi.io/articles`, obj);
+  };
 
   return (
     <>
@@ -38,6 +57,9 @@ export const FullPost = ({}) => {
             </Link>
           </div>
         </div>
+      </div>
+      <div className="forma">
+        <button onClick={q}>go</button>
       </div>
       <Comments comments={comments} />
     </>

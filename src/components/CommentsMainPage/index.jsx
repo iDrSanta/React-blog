@@ -1,5 +1,5 @@
 import React from 'react';
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import { KeyboardArrowRight, KeyboardArrowUp } from '@mui/icons-material';
 
 import styles from './CommentsMainPage.module.scss';
 import classNames from 'classnames';
@@ -12,15 +12,16 @@ export const CommentsMainPage = () => {
   };
 
   return (
-    <div onClick={onVisibleComments} className={styles.commentsWrapper}>
-      <div
-        className={classNames(styles.title, {
-          hide: !visibleComments,
-        })}>
-        Комментарии
-        <KeyboardArrowRightIcon />
+    <div className={styles.commentsWrapper}>
+      <div onClick={onVisibleComments} className={!visibleComments ? styles.hide : styles.show}>
+        <span>Комментарии</span>
+        {visibleComments ? (
+          <KeyboardArrowRight className={styles.svgArrow} />
+        ) : (
+          <KeyboardArrowUp className={styles.svgArrow} />
+        )}
       </div>
-      {visibleComments && <div className={styles.commentsBlock}>123</div>}
+      {visibleComments && <div className={styles.commentsBlock}></div>}
     </div>
   );
 };
