@@ -3,7 +3,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { Link } from 'react-router-dom';
 
 import styles from './Header.module.scss';
-import { CreateArticalModal } from '../CreateArticalModal/index';
+import { CreateArticalForm } from '../CreateArticalForm/index';
 import { ModalWindow } from '../ModalWindow/index';
 
 export const Header = () => {
@@ -32,7 +32,11 @@ export const Header = () => {
 
       {visibleModal && (
         // <CreateArticalModal visibleModal={visibleModal} toggleVisibleModal={toggleVisibleModal} />
-        <ModalWindow visibleModal={visibleModal} toggleVisibleModal={toggleVisibleModal} />
+        <ModalWindow
+          visibleModal={visibleModal}
+          toggleVisibleModal={toggleVisibleModal}
+          children={<CreateArticalForm toggleVisibleModal={toggleVisibleModal} />}
+        />
       )}
     </>
   );

@@ -8,7 +8,7 @@ import styles from './FullPost.module.scss';
 import { fetchComments } from '../../redux/actions/comments';
 import axios from 'axios';
 
-export const FullPost = ({}) => {
+export const FullPost = () => {
   const { id } = useParams();
   const post = useSelector(({ articles }) => articles.items.find((obj) => obj.id === Number(id)));
   const comments = useSelector(({ comments }) => comments.items);
@@ -16,6 +16,7 @@ export const FullPost = ({}) => {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
+    console.log(post);
     dispatch(fetchComments());
   }, []);
 
@@ -39,6 +40,7 @@ export const FullPost = ({}) => {
 
   return (
     <>
+      {post && 123}
       <div className={styles.postWrapper}>
         <div className="container">
           <div className={styles.title}>

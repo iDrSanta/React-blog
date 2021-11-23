@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import { Header } from './components/Header';
 import { FullPost } from './components/FullPost';
-import { MainPage } from './pages/MainPage';
+import { MainPage } from './pages/MainPage/index';
 
 function App() {
   return (

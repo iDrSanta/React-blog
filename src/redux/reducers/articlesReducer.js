@@ -46,7 +46,7 @@ const articlesReducer = (state = initialState, action) => {
       const lastId = lastItem.id + 1;
       return {
         ...state,
-        items: [...state.items, { id: lastId, ...action.payload }],
+        items: [{ id: lastId, ...action.payload }, ...state.items],
       };
     default:
       return state;

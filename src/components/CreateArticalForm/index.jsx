@@ -1,11 +1,10 @@
 import React from 'react';
-import CloseIcon from '@mui/icons-material/Close';
 import { useDispatch } from 'react-redux';
 
-import './CreateArticalModal.scss';
+import styles from './CreateArticalForm.module.scss';
 import { addArticle } from '../../redux/actions/articles';
 
-export const CreateArticalModal = ({ toggleVisibleModal }) => {
+export const CreateArticalForm = ({ toggleVisibleModal }) => {
   const dispatch = useDispatch();
   const [article, setArticle] = React.useState({
     title: '',
@@ -24,47 +23,46 @@ export const CreateArticalModal = ({ toggleVisibleModal }) => {
   };
 
   return (
-    <div onClick={toggleVisibleModal} className="modal">
-      <div onClick={(e) => e.stopPropagation()} className="modalContent">
-        <CloseIcon onClick={toggleVisibleModal} sx={{ color: 'rgb(158, 158, 158)' }} />
+    <div className={styles.articalFormWrapper}>
+      <div className={styles.articalForm}>
         <h2>Заголовок</h2>
         <input
+          className={styles.inputForm}
           onChange={changeInput}
           value={article.title}
-          className="inputModla"
           type="text"
           name="title"
           placeholder="Введите заголовок..."
         />
         <h3>Подзаголовок</h3>
         <input
+          className={styles.inputForm}
           onChange={changeInput}
           value={article.subTitle}
-          className="inputModla"
           type="text"
           name="subTitle"
           placeholder="Введите позаголовок..."
         />
-        <h3>Картинка</h3>
+        <h3>Изображение</h3>
         <input
+          className={styles.inputForm}
           onChange={changeInput}
           value={article.image}
-          className="inputModla"
           type="text"
           name="image"
           placeholder="Введите URL..."
         />
         <h3>Текст статьи</h3>
-        <input
+        <textarea
+          className={styles.inputForm}
           onChange={changeInput}
           value={article.text}
-          className="inputModla"
           type="text"
           name="text"
           placeholder="Введите текст..."
         />
-        <button onClick={onSendArticle}>Отправить</button>
       </div>
+      <button onClick={onSendArticle}>Опубликовать</button>
     </div>
   );
 };
