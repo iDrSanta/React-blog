@@ -1,9 +1,28 @@
-export const addArticle = (item) => ({
-  type: 'ADD_ARTICLE',
-  payload: item,
-});
+import axios from 'axios';
 
 export const removeArticle = (id) => ({
   type: 'REMOVE_ARTICLE',
   payload: id,
 });
+
+export const setArticles = (items) => ({
+  type: 'SET_ARTICLES',
+  payload: items,
+});
+export const fetchArticle = () => async (dispatch) => {
+  const { data } = await axios.get(`https://618dc902fe09aa001744089a.mockapi.io/articles`);
+  console.log(data);
+
+  dispatch(setArticles(data));
+};
+
+export const addArticle = (obj) => ({
+  type: 'ADD_ARTICLE',
+  payload: obj,
+});
+
+export const publishArticle = (obj) => async (dispatch) => {
+  await axios.post(`https://618dc902fe09aa001744089a.mockapi.io/articles`, obj);
+
+  dispatch(addArticle(obj));
+};

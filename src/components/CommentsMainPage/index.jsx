@@ -2,7 +2,6 @@ import React from 'react';
 import { KeyboardArrowRight, KeyboardArrowUp } from '@mui/icons-material';
 
 import styles from './CommentsMainPage.module.scss';
-import classNames from 'classnames';
 
 export const CommentsMainPage = () => {
   const [visibleComments, setVisibleComments] = React.useState(true);

@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import styles from './CreateArticalForm.module.scss';
-import { addArticle } from '../../redux/actions/articles';
+import { publishArticle } from '../../redux/actions/articles';
 
 export const CreateArticalForm = ({ toggleVisibleModal }) => {
   const dispatch = useDispatch();
@@ -17,8 +17,8 @@ export const CreateArticalForm = ({ toggleVisibleModal }) => {
     setArticle({ ...article, [e.target.name]: e.target.value });
   };
 
-  const onSendArticle = () => {
-    dispatch(addArticle(article));
+  const onpuBlishArticle = () => {
+    dispatch(publishArticle(article));
     toggleVisibleModal();
   };
 
@@ -62,7 +62,7 @@ export const CreateArticalForm = ({ toggleVisibleModal }) => {
           placeholder="Введите текст..."
         />
       </div>
-      <button onClick={onSendArticle}>Опубликовать</button>
+      <button onClick={onpuBlishArticle}>Опубликовать</button>
     </div>
   );
 };

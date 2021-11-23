@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 
 import { Header } from './components/Header';
-import { FullPost } from './components/FullPost';
+import { FullArticle } from './components/FullArticle';
 import { MainPage } from './pages/MainPage/index';
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/React-blog/" element={<MainPage />} exact />
-        <Route path="/React-blog/post/:id" element={<FullPost />} />
+        <Route path="/React-blog/post/:id" element={<FullArticle />} />
       </Routes>
     </div>
   );
