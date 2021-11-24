@@ -7,8 +7,9 @@ import { Post } from '../../components/Post';
 import { fetchArticle } from '../../redux/actions/articles';
 
 export const MainPage = () => {
-  // const articles = useSelector(({ articles }) => articles.items);
-  // const q = useSelector(({ articles }) => articles.items);
+  const articles = useSelector(({ articles }) => articles.items);
+  const items = articles;
+  console.log(items);
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(fetchArticle());
@@ -17,9 +18,9 @@ export const MainPage = () => {
     <div className={styles.mainPageWrapper}>
       <div className="left__box"></div>
       <div className={styles.articles}>
-        {/* {articles.map((obj) => (
+        {items.reverse().map((obj) => (
           <Post key={obj.id} {...obj} />
-        ))} */}
+        ))}
       </div>
       <CommentsMainPage />
     </div>

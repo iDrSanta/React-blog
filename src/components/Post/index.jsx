@@ -2,14 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import { removeArticle } from '../../redux/actions/articles';
+import { fetchRemoveArticle } from '../../redux/actions/articles';
 import styles from './Post.module.scss';
 
 export const Post = ({ id, title, subTitle, image }) => {
   const dispatch = useDispatch();
   const onRemoveArticle = (id) => {
     console.log(id);
-    dispatch(removeArticle(id));
+    dispatch(fetchRemoveArticle(id));
   };
   return (
     <div className={styles.postWrapper}>

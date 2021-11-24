@@ -10,9 +10,9 @@ import { fetchComments } from '../../redux/actions/comments';
 export const FullArticle = () => {
   const { id } = useParams();
   const article = useSelector(({ articles }) =>
-    articles.items.find((obj) => obj.id === Number(id)),
+    articles.items.find((obj) => Number(obj.id) === Number(id)),
   );
-  const comments = useSelector(({ comments }) => comments.items);
+  console.log(article);
 
   const dispatch = useDispatch();
 
@@ -43,7 +43,7 @@ export const FullArticle = () => {
               </div>
             </div>
           </div>
-          <Comments comments={comments} />
+          {/* <Comments comments={comments} /> */}
         </div>
       ) : (
         404
