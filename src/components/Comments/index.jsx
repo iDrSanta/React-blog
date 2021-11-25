@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './Comments.module.scss';
 import { Comment } from '../Comment/index';
 
-export const Comments = ({ comments }) => {
+export const Comments = ({ comments = [] }) => {
   return (
     <div className={styles.commentsWrapper}>
       <div className={styles.commentsTopBox}>

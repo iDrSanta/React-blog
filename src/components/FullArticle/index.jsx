@@ -42,7 +42,7 @@ export const FullArticle = () => {
               </div>
             </div>
           </div>
-          {/* <Comments comments={comments} /> */}
+          <Comments comments={fullArticle.comments} />
         </div>
       ) : (
         404
