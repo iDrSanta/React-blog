@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { CommentsMainPage } from '../../components/CommentsMainPage/index';
 import styles from './MainPage.module.scss';
 import { Post } from '../../components/Post';
 import { fetchArticle } from '../../redux/actions/articles';
@@ -21,7 +20,6 @@ export const MainPage = () => {
           <Post key={obj.id} {...obj} />
         ))}
       </div>
-      <CommentsMainPage />
     </div>
   );
 };

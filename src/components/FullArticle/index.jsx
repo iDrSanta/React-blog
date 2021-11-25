@@ -6,36 +6,35 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Comments } from '../Comments/index';
 import styles from './FullArticle.module.scss';
 import { fetchComments } from '../../redux/actions/comments';
+import { fetchFullArticle } from '../../redux/actions/fullArticle';
 
 export const FullArticle = () => {
   const { id } = useParams();
-  const article = useSelector(({ articles }) =>
-    articles.items.find((obj) => Number(obj.id) === Number(id)),
-  );
-  console.log(article);
+  const { fullArticle } = useSelector((state) => state.fullArticle);
+  console.log(fullArticle);
 
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    dispatch(fetchComments());
+    dispatch(fetchFullArticle(id));
   }, []);
 
   return (
     <>
-      {article ? (
+      {fullArticle ? (
         <div>
           <div className={styles.articleWrapper}>
             <div className="container">
               <div className={styles.title}>
-                <h1>{article.title}</h1>
+                <h1>{fullArticle.title}</h1>
               </div>
               <div className={styles.subTitle}>
-                <h4>{article.subTitle}</h4>
+                <h4>{fullArticle.subTitle}</h4>
               </div>
             </div>
-            <img src={article.image} alt="postImg" />
+            <img src={fullArticle.image} alt="postImg" />
             <div className="container">
-              <div className={styles.text}>{article.text}</div>
+              <div className={styles.text}>{fullArticle.text}</div>
               <div className={styles.buttonBox}>
                 <Link to="/React-blog/">
                   <button>На главную</button>
