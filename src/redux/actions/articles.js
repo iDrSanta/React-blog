@@ -1,13 +1,19 @@
 import axios from 'axios';
 
+export const setIsLoaded = () => ({
+  type: 'SET_IS_LOADED',
+});
+
 export const setArticles = (items) => ({
   type: 'SET_ARTICLES',
   payload: items,
 });
 export const fetchArticle = () => async (dispatch) => {
+  dispatch(setIsLoaded());
   const { data } = await axios.get(`https://618dc902fe09aa001744089a.mockapi.io/articles`);
 
   dispatch(setArticles(data));
+  dispatch(setIsLoaded());
 };
 
 export const addArticle = (obj) => ({

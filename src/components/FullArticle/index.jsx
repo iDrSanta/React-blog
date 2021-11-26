@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
+import ContentLoader from 'react-content-loader';
 
 import { Comments } from '../Comments/index';
 import styles from './FullArticle.module.scss';
@@ -10,8 +11,7 @@ import { fetchFullArticle } from '../../redux/actions/fullArticle';
 
 export const FullArticle = () => {
   const { id } = useParams();
-  const { fullArticle } = useSelector((state) => state.fullArticle);
-  console.log(fullArticle);
+  const { fullArticle, isLoaded } = useSelector((state) => state.fullArticle);
 
   const dispatch = useDispatch();
 
@@ -21,7 +21,7 @@ export const FullArticle = () => {
 
   return (
     <>
-      {fullArticle ? (
+      {!isLoaded ? (
         <div>
           <div className={styles.articleWrapper}>
             <div className="container">
@@ -45,7 +45,17 @@ export const FullArticle = () => {
           <Comments comments={fullArticle.comments} />
         </div>
       ) : (
-        404
+        <ContentLoader
+          className={styles.skelet}
+          speed={1}
+          width={1300}
+          height={1500}
+          viewBox="0 0 1300 1500"
+          backgroundColor="#ffffff"
+          foregroundColor="#ecebeb">
+          <rect x="131" y="406" rx="0" ry="0" width="11" height="0" />
+          <rect x="0" y="0" rx="8" ry="8" width="1020" height="1340" />
+        </ContentLoader>
       )}
     </>
   );

@@ -9,7 +9,6 @@ const articlesReducer = (state = initialState, action) => {
       return { ...state, items: action.payload };
     case 'ADD_ARTICLE':
       const lastId = state.items.length ? state.items[state.items.length - 1] + 1 : 1;
-
       return {
         ...state,
         items: [...state.items, { id: lastId, ...action.payload }],
@@ -19,6 +18,12 @@ const articlesReducer = (state = initialState, action) => {
       return {
         ...state,
         items: state.items.filter((obj) => Number(obj.id) !== Number(action.payload)),
+      };
+
+    case 'SET_IS_LOADED':
+      return {
+        ...state,
+        isLoaded: !state.isLoaded,
       };
 
     default:

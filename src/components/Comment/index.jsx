@@ -9,7 +9,6 @@ export const Comment = ({ id, userName, text }) => {
   const dispatch = useDispatch();
   const onRemoveComment = (id) => {
     dispatch(fetchRemoveComments(id));
-    console.log(id);
   };
   return (
     <div className="container">

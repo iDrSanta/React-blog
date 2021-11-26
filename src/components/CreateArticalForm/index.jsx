@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import classNames from 'classnames';
 
 import styles from './CreateArticalForm.module.scss';
 import { publishArticle } from '../../redux/actions/articles';
@@ -17,12 +16,10 @@ const schema = yup.object({
 export const CreateArticalForm = ({ toggleVisibleModal }) => {
   const { register, handleSubmit, formState } = useForm({ resolver: yupResolver(schema) });
   const { errors } = formState;
-  console.log(errors);
 
   const dispatch = useDispatch();
 
   const onSubmit = (value) => {
-    console.log(value);
     dispatch(publishArticle(value));
     toggleVisibleModal();
   };
