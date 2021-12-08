@@ -2,7 +2,6 @@
   "name": "react-blog",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://idrsanta.github.io/React-blog/",
   "dependencies": {
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
@@ -37,6 +36,7 @@
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build",
     "predeploy": "yarn run build",
+    "server": "node server.js",
     "fake-json": "json-server ./src/assets/db.json --watch --port 3001"
   },
   "eslintConfig": {
