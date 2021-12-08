@@ -17,7 +17,7 @@ export const Header = () => {
     <>
       <div className={styles.headerContainer}>
         <header className={styles.header}>
-          <Link to="/React-blog/">
+          <Link to="/">
             <div className={styles.logo}>RB</div>
           </Link>
           <div className={styles.searchBox}>

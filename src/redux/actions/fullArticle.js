@@ -10,9 +10,9 @@ export const setFullArticle = (item) => ({
 });
 
 export const fetchFullArticle = (id) => async (dispatch) => {
-  dispatch(setIsLoaded())
-  const { data } = await axios.get(`https://618dc902fe09aa001744089a.mockapi.io/articles/${id}`);
+  dispatch(setIsLoaded());
+  const { data } = await axios.get(`http://localhost:3001/articles/${id}`);
 
   dispatch(setFullArticle(data));
-  dispatch(setIsLoaded())
+  dispatch(setIsLoaded());
 };

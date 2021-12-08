@@ -36,7 +36,7 @@ export const FullArticle = () => {
             <div className="container">
               <div className={styles.text}>{fullArticle.text}</div>
               <div className={styles.buttonBox}>
-                <Link to="/React-blog/">
+                <Link to="/">
                   <button>На главную</button>
                 </Link>
               </div>

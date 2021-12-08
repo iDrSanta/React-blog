@@ -15,12 +15,13 @@ export const MainPage = () => {
     dispatch(fetchArticle());
   }, []);
 
+  console.log(items);
   return (
     <div className={styles.mainPageWrapper}>
       <div className="left__box"></div>
       <div className={styles.articles}>
         {!isLoaded
-          ? items.reverse().map((obj) => <Post key={obj.id} {...obj} />)
+          ? items.map((obj) => <Post key={obj.id} {...obj} />)
           : arr.map(() => (
               <ContentLoader
                 className={styles.skelet}

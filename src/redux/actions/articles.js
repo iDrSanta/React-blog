@@ -10,7 +10,7 @@ export const setArticles = (items) => ({
 });
 export const fetchArticle = () => async (dispatch) => {
   dispatch(setIsLoaded());
-  const { data } = await axios.get(`https://618dc902fe09aa001744089a.mockapi.io/articles`);
+  const { data } = await axios.get(`http://localhost:3001/articles`);
 
   dispatch(setArticles(data));
   dispatch(setIsLoaded());
@@ -22,9 +22,10 @@ export const addArticle = (obj) => ({
 });
 
 export const publishArticle = (obj) => async (dispatch) => {
-  await axios.post(`https://618dc902fe09aa001744089a.mockapi.io/articles`, obj);
-
-  dispatch(addArticle(obj));
+  dispatch(setIsLoaded);
+  const { data } = await axios.post(`http://localhost:3001/articles`, obj);
+  console.log(data);
+  dispatch(addArticle(data));
 };
 
 export const removeArticle = (id) => ({
@@ -33,7 +34,8 @@ export const removeArticle = (id) => ({
 });
 
 export const fetchRemoveArticle = (id) => async (dispatch) => {
-  await axios.delete(`https://618dc902fe09aa001744089a.mockapi.io/articles/${id}`);
+  console.log(id);
+  await axios.delete(`http://localhost:3001/articles/${id}`);
 
   dispatch(removeArticle(id));
 };

@@ -11,8 +11,8 @@ function App() {
       <Header />
       <CommentsMainPage />
       <Routes>
-        <Route path="/React-blog/" element={<MainPage />} exact />
-        <Route path="/React-blog/post/:id" element={<FullArticle />} />
+        <Route path="/" element={<MainPage />} exact />
+        <Route path="/post/:id" element={<FullArticle />} />
       </Routes>
     </div>
   );

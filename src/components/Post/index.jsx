@@ -1,13 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { fetchRemoveArticle } from '../../redux/actions/articles';
 import styles from './Post.module.scss';
 
 export const Post = ({ id, title, subTitle, image }) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const onRemoveArticle = (id) => {
+    console.log(id);
     dispatch(fetchRemoveArticle(id));
   };
   return (
@@ -22,7 +24,7 @@ export const Post = ({ id, title, subTitle, image }) => {
       </div>
       <img src={image} alt="postImg" />
       <div className={styles.buttonBox}>
-        <Link to={`post/${id}`}>
+        <Link to={`/post/${id}`}>
           <button>Читать полностью</button>
         </Link>
         <button
