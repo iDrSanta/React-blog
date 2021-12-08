@@ -10,7 +10,9 @@ export const setArticles = (items) => ({
 });
 export const fetchArticle = () => async (dispatch) => {
   dispatch(setIsLoaded());
-  const { data } = await axios.get(`https://isanta-react-blog.herokuapp.com/articles`);
+  const { data } = await axios.get(
+    `https://isanta-react-blog.herokuapp.com/articles?_sort=id&_order=desc`,
+  );
 
   dispatch(setArticles(data));
   dispatch(setIsLoaded());

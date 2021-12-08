@@ -11,7 +11,7 @@ const articlesReducer = (state = initialState, action) => {
       // const lastId = state.items.length ? state.items[state.items.length - 1] + 1 : 1;
       return {
         ...state,
-        items: [...state.items, { ...action.payload }],
+        items: [{ ...action.payload }, ...state.items],
       };
 
     case 'REMOVE_ARTICLE':
