@@ -11,7 +11,7 @@ export const setFullArticle = (item) => ({
 
 export const fetchFullArticle = (id) => async (dispatch) => {
   dispatch(setIsLoaded());
-  const { data } = await axios.get(`http://localhost:3001/articles/${id}`);
+  const { data } = await axios.get(`https://isanta-react-blog.herokuapp.com/articles/${id}`);
 
   dispatch(setFullArticle(data));
   dispatch(setIsLoaded());

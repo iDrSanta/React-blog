@@ -10,7 +10,7 @@ export const setArticles = (items) => ({
 });
 export const fetchArticle = () => async (dispatch) => {
   dispatch(setIsLoaded());
-  const { data } = await axios.get(`http://localhost:3001/articles`);
+  const { data } = await axios.get(`https://isanta-react-blog.herokuapp.com/articles`);
 
   dispatch(setArticles(data));
   dispatch(setIsLoaded());
@@ -23,7 +23,7 @@ export const addArticle = (obj) => ({
 
 export const publishArticle = (obj) => async (dispatch) => {
   dispatch(setIsLoaded);
-  const { data } = await axios.post(`http://localhost:3001/articles`, obj);
+  const { data } = await axios.post(`https://isanta-react-blog.herokuapp.com/articles`, obj);
   console.log(data);
   dispatch(addArticle(data));
 };
@@ -35,7 +35,7 @@ export const removeArticle = (id) => ({
 
 export const fetchRemoveArticle = (id) => async (dispatch) => {
   console.log(id);
-  await axios.delete(`http://localhost:3001/articles/${id}`);
+  await axios.delete(`https://isanta-react-blog.herokuapp.com/articles/${id}`);
 
   dispatch(removeArticle(id));
 };
