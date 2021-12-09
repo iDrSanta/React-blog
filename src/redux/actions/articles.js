@@ -41,3 +41,8 @@ export const fetchRemoveArticle = (id) => async (dispatch) => {
 
   dispatch(removeArticle(id));
 };
+
+export const setSearch = (str) => ({
+  type: 'SET_SEARCH',
+  payload: str,
+});

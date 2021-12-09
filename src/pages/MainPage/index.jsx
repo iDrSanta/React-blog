@@ -4,16 +4,20 @@ import ContentLoader from 'react-content-loader';
 
 import styles from './MainPage.module.scss';
 import { Post } from '../../components/Post';
-import { fetchArticle, setIsLoaded } from '../../redux/actions/articles';
+import { fetchArticle } from '../../redux/actions/articles';
 
 export const MainPage = () => {
   const arr = [1, 1, 1, 1, 1, 1, 1, 1];
-  const { items, isLoaded } = useSelector(({ articles }) => articles);
+  const { items, isLoaded, search } = useSelector(({ articles }) => articles);
   const q = true;
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(fetchArticle());
   }, []);
+
+  React.useEffect(() => {
+    console.log(search);
+  }, [search]);
 
   console.log(items);
   return (
@@ -21,11 +25,18 @@ export const MainPage = () => {
       <div className="left__box"></div>
       <div className={styles.articles}>
         {!isLoaded
-          ? items.map((obj) => <Post key={obj.id} {...obj} />)
-          : arr.map(() => (
+          ? items
+              .filter((obj) =>
+                (obj.title.toLowerCase() + obj.subTitle.toLowerCase()).includes(
+                  search.toLowerCase(),
+                ),
+              )
+              .map((obj) => <Post key={obj.id} {...obj} />)
+          : arr.map((_, i) => (
               <ContentLoader
                 className={styles.skelet}
                 speed={1}
+                key={i}
                 width={700}
                 height={700}
                 viewBox="0 0 700 700"

@@ -1,6 +1,7 @@
 const initialState = {
   isLoaded: false,
   items: [],
+  search: '',
 };
 
 const articlesReducer = (state = initialState, action) => {
@@ -24,6 +25,12 @@ const articlesReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoaded: !state.isLoaded,
+      };
+
+    case 'SET_SEARCH':
+      return {
+        ...state,
+        search: action.payload,
       };
 
     default:
