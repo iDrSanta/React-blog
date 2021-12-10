@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App clear">
       <Header />
-      <CommentsMainPage />
+
       <Routes>
         <Route path="/" element={<MainPage />} exact />
         <Route path="/post/:id" element={<FullArticle />} />

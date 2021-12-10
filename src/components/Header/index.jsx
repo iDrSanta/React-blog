@@ -3,10 +3,12 @@ import SearchIcon from '@mui/icons-material/Search';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { SortPanel } from '../SortPanel/index';
 import styles from './Header.module.scss';
 import { CreateArticalForm } from '../CreateArticalForm/index';
 import { ModalWindow } from '../ModalWindow/index';
 import { setSearch } from '../../redux/actions/articles';
+import { CommentsMainPage } from '../CommentsMainPage';
 
 export const Header = () => {
   const [visibleModal, setVisibleModal] = React.useState(false);
@@ -41,6 +43,10 @@ export const Header = () => {
             Новая запись
           </button>
         </header>
+        <div className={styles.sortPanel}>
+          <SortPanel />
+          <CommentsMainPage />
+        </div>
       </div>
 
       {visibleModal && (
