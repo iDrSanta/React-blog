@@ -21,6 +21,7 @@ export const SortPanel = () => {
 
   const onSetActiveCategory = (id) => {
     setActiveCategory(id);
+    console.log(activeCategory);
   };
 
   return (
