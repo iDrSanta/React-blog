@@ -9,7 +9,6 @@ export const Post = ({ id, title, subTitle, image }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const onRemoveArticle = (id) => {
-    console.log(id);
     dispatch(fetchRemoveArticle(id));
   };
   return (

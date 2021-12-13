@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchIcon from '@mui/icons-material/Search';
+import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -12,6 +13,7 @@ import { CommentsMainPage } from '../CommentsMainPage';
 
 export const Header = () => {
   const [visibleModal, setVisibleModal] = React.useState(false);
+  const [visibleSortPanel, setVisibleSortPanel] = React.useState(true);
   const dispatch = useDispatch();
 
   const toggleVisibleModal = () => {
@@ -21,12 +23,15 @@ export const Header = () => {
   const onSetSearch = (e) => {
     dispatch(setSearch(e.target.value));
   };
+  const onVisibleSortPanel = () => {
+    setVisibleSortPanel(!visibleSortPanel);
+  };
 
-  console.log(setSearch);
   return (
     <>
       <div className={styles.headerContainer}>
         <header className={styles.header}>
+          <MenuIcon className={styles.burgerMenu} onClick={onVisibleSortPanel} />
           <Link to="/">
             <div className={styles.logo}>RB</div>
           </Link>
@@ -44,7 +49,7 @@ export const Header = () => {
           </button>
         </header>
         <div className={styles.sortPanel}>
-          <SortPanel />
+          {visibleSortPanel && <SortPanel />}
           <CommentsMainPage />
         </div>
       </div>

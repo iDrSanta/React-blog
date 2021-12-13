@@ -26,7 +26,6 @@ export const addArticle = (obj) => ({
 export const publishArticle = (obj) => async (dispatch) => {
   dispatch(setIsLoaded);
   const { data } = await axios.post(`https://isanta-react-blog.herokuapp.com/articles`, obj);
-  console.log(data);
   dispatch(addArticle(data));
 };
 
@@ -36,7 +35,6 @@ export const removeArticle = (id) => ({
 });
 
 export const fetchRemoveArticle = (id) => async (dispatch) => {
-  console.log(id);
   await axios.delete(`https://isanta-react-blog.herokuapp.com/articles/${id}`);
 
   dispatch(removeArticle(id));

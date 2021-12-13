@@ -15,11 +15,8 @@ export const MainPage = () => {
     dispatch(fetchArticle());
   }, []);
 
-  React.useEffect(() => {
-    console.log(search);
-  }, [search]);
+  React.useEffect(() => {}, [search]);
 
-  console.log(items);
   return (
     <div className={styles.mainPageWrapper}>
       <div className="left__box"></div>
