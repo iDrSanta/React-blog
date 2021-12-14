@@ -44,3 +44,11 @@ export const setSearch = (str) => ({
   type: 'SET_SEARCH',
   payload: str,
 });
+
+export const fetchArticlesByCategory = (category) => async (dispatch) => {
+  const { data } = await axios.get(
+    `https://isanta-react-blog.herokuapp.com/articles?category=${category}`,
+  );
+
+  dispatch(setArticles(data));
+};
