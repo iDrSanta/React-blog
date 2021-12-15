@@ -11,7 +11,7 @@ export const setArticles = (items) => ({
 export const fetchArticle = () => async (dispatch) => {
   dispatch(setIsLoaded());
   const { data } = await axios.get(
-    `https://isanta-react-blog.herokuapp.com/articles?_sort=id&_order=desc`,
+    `https://61b98dee38f69a0017ce60f1.mockapi.io/articles?sortBy=id&order=desc`,
   );
 
   dispatch(setArticles(data));
@@ -25,7 +25,7 @@ export const addArticle = (obj) => ({
 
 export const publishArticle = (obj) => async (dispatch) => {
   dispatch(setIsLoaded);
-  const { data } = await axios.post(`https://isanta-react-blog.herokuapp.com/articles`, obj);
+  const { data } = await axios.post(`https://61b98dee38f69a0017ce60f1.mockapi.io/articles`, obj);
   dispatch(addArticle(data));
 };
 
@@ -35,7 +35,7 @@ export const removeArticle = (id) => ({
 });
 
 export const fetchRemoveArticle = (id) => async (dispatch) => {
-  await axios.delete(`https://isanta-react-blog.herokuapp.com/articles/${id}`);
+  await axios.delete(`https://61b98dee38f69a0017ce60f1.mockapi.io/articles/${id}`);
 
   dispatch(removeArticle(id));
 };
@@ -47,7 +47,7 @@ export const setSearch = (str) => ({
 
 export const fetchArticlesByCategory = (category) => async (dispatch) => {
   const { data } = await axios.get(
-    `https://isanta-react-blog.herokuapp.com/articles?category=${category}`,
+    `https://61b98dee38f69a0017ce60f1.mockapi.io/articles?category=${category}`,
   );
 
   dispatch(setArticles(data));

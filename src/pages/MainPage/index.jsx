@@ -5,6 +5,7 @@ import ContentLoader from 'react-content-loader';
 import styles from './MainPage.module.scss';
 import { Post } from '../../components/Post';
 import { fetchArticle } from '../../redux/actions/articles';
+import axios from 'axios';
 
 export const MainPage = () => {
   const arr = [1, 1, 1, 1, 1, 1, 1, 1];
@@ -19,7 +20,6 @@ export const MainPage = () => {
 
   return (
     <div className={styles.mainPageWrapper}>
-      <div className="left__box"></div>
       <div className={styles.articles}>
         {!isLoaded
           ? items
