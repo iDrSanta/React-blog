@@ -22,6 +22,7 @@ export const Comments = ({ comments = [], article }) => {
         date: new Date(),
       }),
     );
+    setCommentValue('');
   };
 
   return (
