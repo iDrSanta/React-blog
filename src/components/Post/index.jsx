@@ -1,12 +1,11 @@
 import React from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { fetchRemoveArticle } from '../../redux/actions/articles';
 import styles from './Post.module.scss';
 
 export const Post = ({ id, title, subTitle, image }) => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const onRemoveArticle = (id) => {
     dispatch(fetchRemoveArticle(id));

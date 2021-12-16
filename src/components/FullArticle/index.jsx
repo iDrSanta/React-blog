@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { useParams } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
 import ContentLoader from 'react-content-loader';
-import axios from 'axios';
 
 import { Comments } from '../Comments/index';
 import styles from './FullArticle.module.scss';
@@ -13,21 +12,14 @@ import { fetchFullArticle } from '../../redux/actions/fullArticle';
 export const FullArticle = () => {
   const { id } = useParams();
   const { fullArticle, isLoaded } = useSelector((state) => state.fullArticle);
+  const comments = useSelector(({ comments }) => comments.items);
 
   const dispatch = useDispatch();
 
   React.useEffect(() => {
     dispatch(fetchFullArticle(id));
+    dispatch(fetchComments(id));
   }, []);
-
-  console.log(fullArticle);
-
-  const a = () => {
-    axios.post(`https://61b98dee38f69a0017ce60f1.mockapi.io/articles/${id}/comments`, {
-      userName: 'noName',
-      comments: 'text comments',
-    });
-  };
 
   return (
     <>
@@ -49,11 +41,10 @@ export const FullArticle = () => {
                 <Link to="/">
                   <button>На главную</button>
                 </Link>
-                <button onClick={a}>q</button>
               </div>
             </div>
           </div>
-          <Comments comments={fullArticle.comments} />
+          <Comments comments={comments} article={fullArticle.id} />
         </div>
       ) : (
         <ContentLoader

@@ -5,12 +5,10 @@ import ContentLoader from 'react-content-loader';
 import styles from './MainPage.module.scss';
 import { Post } from '../../components/Post';
 import { fetchArticle } from '../../redux/actions/articles';
-import axios from 'axios';
 
 export const MainPage = () => {
   const arr = [1, 1, 1, 1, 1, 1, 1, 1];
   const { items, isLoaded, search } = useSelector(({ articles }) => articles);
-  const q = true;
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(fetchArticle());

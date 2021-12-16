@@ -36,7 +36,6 @@ export const CreateArticalForm = ({ toggleVisibleModal }) => {
   const onSubmit = (value) => {
     value.category = activeCategory;
     dispatch(publishArticle(value));
-    console.log(value);
     toggleVisibleModal();
   };
 
@@ -44,7 +43,6 @@ export const CreateArticalForm = ({ toggleVisibleModal }) => {
 
   const onSetActiveCategory = (id) => {
     setActiveCategory(id);
-    console.log(activeCategory);
   };
 
   return (
